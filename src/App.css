@@ -15,6 +15,7 @@
     --white: #fff;
     --black: #000;
     --shadow: #e1dfdf;
+    --whiteGray: #f6f6f6;
 
     /* RESPONSIVE FONT-SIZES */
   :root {
@@ -107,7 +108,10 @@ input {
 a {
     text-decoration: none;
     
-}   
+}  
+ul{
+    list-style: none;
+} 
 
 /* MAX WIDTH */
 .max-width {
