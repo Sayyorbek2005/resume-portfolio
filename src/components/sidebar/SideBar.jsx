@@ -7,9 +7,14 @@ import { FaUser } from "react-icons/fa";
 import { PiNetworkFill } from "react-icons/pi";
 import { RiFolderCloudFill } from "react-icons/ri";
 import { MdOutlineMarkEmailUnread } from "react-icons/md";
+import { useLanguage } from '../../context/LanguageContext';
+import { translations } from '../../locales/translation';
 
 
 const SideBar = () => {
+
+  const { lang } = useLanguage();
+  const t = translations[lang];
   return (
     <SidebarContainer>
       <div className='sidebar'>
@@ -17,31 +22,32 @@ const SideBar = () => {
           <li>
             <AiOutlineHome />
             <span>
-              Home 
+              
+              {t.sidebarHome} 
             </span>
           </li>
           <li>
             <FaUser />
             <span>
-              Resume
+              {t.sidebarResume}
             </span>
           </li>
           <li>
             <PiNetworkFill />
             <span>
-              Services
+              {t.sidebarServices}
             </span>
           </li>
           <li>
             <RiFolderCloudFill />
             <span>
-              work
+              {t.sidebarWorks}
             </span>
           </li>
           <li>
             <MdOutlineMarkEmailUnread />
             <span>
-              Contact
+              {t.sidebarContact}
             </span>
           </li>
         </ul>

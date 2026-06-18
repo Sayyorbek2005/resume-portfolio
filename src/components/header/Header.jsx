@@ -1,23 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { HeaderContainer } from "./Header.styles";
 
 import {
-  LuSettings2,
-  LuSun,
-  LuMoon,
-  LuPalette,
-} from "react-icons/lu";
+  FiSettings,
+  FiSun,
+  FiMoon,
+  FiGlobe,
+} from "react-icons/fi";
+
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../locales/translation";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
 
-  const changeColor = (color) => {
-    document.documentElement.style.setProperty(
-      "--primary",
-      color
-    );
-  };
+  const { lang, setLang } = useLanguage();
+  const t = translations[lang];
 
+  const modalRef = useRef(null);
+  const iconRef = useRef(null);
+
+  // Close modal on outside click
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(e.target) &&
+        iconRef.current &&
+        !iconRef.current.contains(e.target)
+      ) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () =>
+      document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Theme handlers
   const darkMode = () => {
     document.body.classList.add("dark");
   };
@@ -26,67 +48,81 @@ const Header = () => {
     document.body.classList.remove("dark");
   };
 
+  // Primary color change
+  const changeColor = (color) => {
+    document.documentElement.style.setProperty("--primary", color);
+  };
+
   return (
     <HeaderContainer>
-      <button
-        className="settings-btn"
+      {/* SETTINGS ICON */}
+      <FiSettings
+        ref={iconRef}
+        className={`settings-icon ${open ? "rotate" : ""}`}
         onClick={() => setOpen(!open)}
-      >
-        <LuSettings2 />
-      </button>
+      />
 
-      <div className={`modal ${open ? "active" : ""}`}>
-        <h3>Settings</h3>
+      {/* MODAL */}
+      <div className={`modal ${open ? "active" : ""}`} ref={modalRef}>
+        <h4>{t.settings}</h4>
 
+        {/* THEME */}
         <div className="section">
-          <span className="section-title">
-            Theme
-          </span>
+          <p>{t.theme}</p>
 
           <div className="theme-box">
             <button onClick={lightMode}>
-              <LuSun />
-              Light
+              <FiSun />
+              {t.light}
             </button>
 
             <button onClick={darkMode}>
-              <LuMoon />
-              Dark
+              <FiMoon />
+              {t.dark}
             </button>
           </div>
         </div>
 
+        {/* COLORS */}
         <div className="section">
-          <span className="section-title">
-            <LuPalette />
-            Primary Color
-          </span>
+          <p>{t.color}</p>
 
           <div className="colors">
-            <span
-              className="color blue"
-              onClick={() => changeColor("#3b82f6")}
-            />
+            <span className="blue" onClick={() => changeColor("#3b82f6")} />
+            <span className="purple" onClick={() => changeColor("#8b5cf6")} />
+            <span className="green" onClick={() => changeColor("#22c55e")} />
+            <span className="red" onClick={() => changeColor("#ef4444")} />
+            <span className="orange" onClick={() => changeColor("#f97316")} />
+          </div>
+        </div>
 
-            <span
-              className="color purple"
-              onClick={() => changeColor("#8b5cf6")}
-            />
+        {/* LANGUAGE */}
+        <div className="section">
+          <p>
+            <FiGlobe /> {t.language}
+          </p>
 
-            <span
-              className="color green"
-              onClick={() => changeColor("#22c55e")}
-            />
+          <div className="language-box">
+            <button
+              className={lang === "uz" ? "active" : ""}
+              onClick={() => setLang("uz")}
+            >
+              🇺🇿
+            </button>
 
-            <span
-              className="color red"
-              onClick={() => changeColor("#ef4444")}
-            />
+            <button
+              className={lang === "ru" ? "active" : ""}
+              onClick={() => setLang("ru")}
+            >
+              🇷🇺
+            </button>
 
-            <span
-              className="color orange"
-              onClick={() => changeColor("#f97316")}
-            />
+            <button
+              className={lang === "en" ? "active" : ""}
+              onClick={() => setLang("en")}
+            >
+              🇬🇧
+            </button>
           </div>
         </div>
       </div>

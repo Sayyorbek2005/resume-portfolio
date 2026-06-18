@@ -8,18 +8,21 @@ import Header from './components/header/Header';
 import SideBar from './components/sidebar/SideBar';
 // import { routes } from './routes/Route';
 
+import { LanguageProvider } from "./context/LanguageContext";
+
 
 function App() {
   return (
     <div className="App">
       <ToastContainer />
+      <LanguageProvider>
       <Header />
       <SideBar />
 
 
 
 
-      {/* <Routes>
+        {/* <Routes>
         {routes.map((item, index) => {
           const Component = item.Element;
           return (
@@ -27,11 +30,12 @@ function App() {
               key={index}
               path={item.path}
               element={<Component />}
-            />
-          );
-        })}
-      </Routes> */}
+              />
+              );
+              })}
+              </Routes> */}
 
+      </LanguageProvider>
 
 
       <Footer />
