@@ -10,12 +10,19 @@
 /* ROOT VARIABLES (RESPONSIVE) */
 :root {
     /* COLOR VARIABLES */
-    --primary: #2563eb;
-    --dark-primary: #253feb;
-    --white: #fff;
-    --black: #000;
-    --shadow: #e1dfdf;
-    --whiteGray: #f6f6f6;
+      /* COLORS */
+  --primary: #2563eb;
+  --dark-primary: #253feb;
+
+  --white: #fff;
+  --black: #000;
+
+  --shadow: #e1dfdf;
+  --whiteGray: #f6f6f6;
+
+  --bg: #ffffff;
+  --text: #000000;
+  --card-bg: #ffffff;
 
     /* RESPONSIVE FONT-SIZES */
   :root {
@@ -91,6 +98,20 @@
     --gap-50: clamp(30px, 5vw, 50px);
 }
 
+body.dark {
+  --bg: #111827;
+  --text: #ffffff;
+  --card-bg: #1f2937;
+
+  --shadow: #374151;
+  --whiteGray: #1f2937;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: all 0.3s ease;
+}
 
 
 /* CURSOR POINTER */

@@ -32,9 +32,9 @@ export const SidebarContainer = styled.div`
         }
 
         span{
-            font-size: 10px;
-            height: 30px;
-            width: 30px;
+            font-size: 5px;
+            height: 20px;
+            width: 20px;
             position: absolute;
             z-index: -1;
             left: 10px;
