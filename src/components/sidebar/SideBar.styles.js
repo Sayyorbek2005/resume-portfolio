@@ -11,23 +11,25 @@ export const SidebarContainer = styled.div`
 
     ul > li{
         position: relative;
-        background-color: var(--white);
         margin: 10px 0px;
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        background-color: var(--whiteGray);
+        background-color: var(--primary);
         display: flex;
         align-items: center;
         justify-content: center;
         transition: all .3s ease;
+         box-shadow: 0px 0px 50px -25px var(--primary);
+            outline: 1.5px solid var(--white);
        
-        &hover {
-            background-color: var(--primary);
-        }
-
-        svg{
-            color: var(--primary);
+            &hover {
+                background-color: var(--primary);
+                
+            }
+            
+            svg{
+            color: var(--white);
             font-size: 25px;
         }
 
@@ -55,11 +57,11 @@ export const SidebarContainer = styled.div`
 
 
         &:hover span{
-            width: 180px;
+            width: 190px;
             height: 50px;
             padding: 5px 60px 5px 15px;
             font-size: 26px;
-            left: -133px;
+            left: -145px;
 
         }
 

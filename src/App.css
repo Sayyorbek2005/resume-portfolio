@@ -5,6 +5,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
+    transition: all .3s ease;
 }
 
 /* ROOT VARIABLES (RESPONSIVE) */
@@ -13,6 +14,7 @@
       /* COLORS */
   --primary: #2563eb;
   --dark-primary: #253feb;
+  --gray: gray;
 
   --white: #fff;
   --black: #000;
@@ -142,10 +144,10 @@ ul{
 }
 
 /* DISPLAY HELPERS */
-.display-flex {
+.d-flex-1 {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
 }
 .gap-5{
     gap: var(--gap-5);
@@ -199,4 +201,12 @@ ul{
     .max-width{
         padding: 10px;
     }
+}
+h1{
+    font-size: 45px;
+}
+
+p{
+    font-size: 16px;
+    font-weight: 400;
 }

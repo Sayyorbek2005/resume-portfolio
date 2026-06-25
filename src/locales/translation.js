@@ -1,4 +1,5 @@
 export const translations = {
+  // =============== UZB =============
   uz: {
     // SETTINGS
     settings: "Sozlamalar",
@@ -15,13 +16,14 @@ export const translations = {
 
     // SIDEBAR
     sidebarHome: "Bosh sahifa",
-sidebarResume: "Rezyume",
-sidebarServices: "Xizmatlar",
-sidebarWorks: "Ishlar",
-sidebarContact: "Aloqa",
-    
+    sidebarResume: "Rezyume",
+    sidebarServices: "Xizmatlar",
+    sidebarWorks: "Ishlar",
+    sidebarContact: "Aloqa",
+
   },
 
+  // =============== RUS =============
   ru: {
     // SETTINGS
     settings: "Настройки",
@@ -37,13 +39,15 @@ sidebarContact: "Aloqa",
     homeBtn: "Нажать",
 
     // SIDEBAR
-   sidebarHome: "Главная",
-sidebarResume: "Резюме",
-sidebarServices: "Услуги",
-sidebarWorks: "Работы",
-sidebarContact: "Контакты",
+    sidebarHome: "Главная",
+    sidebarResume: "Резюме",
+    sidebarServices: "Услуги",
+    sidebarWorks: "Работы",
+    sidebarContact: "Контакты",
 
   },
+
+  // =============== ENG =============
 
   en: {
     // SETTINGS
@@ -53,7 +57,7 @@ sidebarContact: "Контакты",
     dark: "Dark",
     color: "Primary Color",
     language: "Language",
-    
+
 
     // HOME
     homeTitle: "Home Page",
