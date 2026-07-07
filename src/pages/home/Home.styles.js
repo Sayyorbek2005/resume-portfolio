@@ -42,6 +42,7 @@ export const HomeContainer = styled.div`
       width: 100%;
       height: 100%;
       object-fit: cover;
+      margin-top: 23px;
     }
   }
 
@@ -56,7 +57,8 @@ export const HomeContainer = styled.div`
   .home-right-box > .h-right-in {
     max-width: 600px;
     width: 100%;
-    margin-right: 100px;
+    /* margin-right: 100px; */
+    margin-left: 50px;
 
     h2 {
       color: var(--primary);
@@ -168,33 +170,38 @@ export const HomeContainer = styled.div`
     }
 
     .home-left > .home-left-image {
-      left: 50%;
-      top: 50%;
-
-      width: 280px;
-      height: 280px;
-
+      /* left: 50%; */
+      /* top: 50%; */
+      margin-top: 50px;
+      margin-right:50px;
+      width: 300px;
+      height: 300px;
       border-radius: 70px;
-
       transform: translate(-50%, -50%) rotate(45deg);
-
       box-shadow: 0 0 50px -25px var(--primary);
       outline: 1px solid var(--primary);
-
+      position: relative;
+      /* z-index: -9; */
       img {
-        transform: rotate(-45deg);
+        transform: rotate(-45deg) scale(1.5) !important;
+        position: absolute;
+        object-fit: contain;
+        margin: 0;
+        
       }
     }
 
     .home-right-box {
       width: 100%;
       justify-content: center;
+      margin-top: 70px;
     }
 
     .home-right-box > .h-right-in {
       width: 100%;
       max-width: 100%;
-      margin-right: 0;
+      margin: 0;
+      /* background-color: var(--primary); */
 
       display: flex;
       flex-direction: column;
@@ -204,7 +211,7 @@ export const HomeContainer = styled.div`
     }
 
     .h-icon-bar {
-      justify-content: center;
+      /* justify-content: center; */
       width: 100%;
     }
   }
